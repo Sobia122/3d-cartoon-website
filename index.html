@@ -1,715 +1,1065 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Sobia Liaqat - Web Developer | PHP | Laravel | Python | Django | HTML | CSS | Bootstrap | WordPress | SEO</title>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <title>NeoCartoon 3D - Your Animated Universe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700|Open+Sans:400,600&display=swap" rel="stylesheet">
-  <!-- Font Awesome -->
+  <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Montserrat:700|Open+Sans:400,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    :root {
-      --primary: #1f2937;
-      --accent: #6edff6;
-      --bg: #f8fafc;
-      --card-bg: #fff;
-      --text: #1f2937;
-      --muted: #6b7280;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Open Sans', Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-    }
-    nav {
-      background: var(--primary);
-      color: #fff;
-      padding: 0.8rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      box-shadow: 0 2px 12px #0001;
-    }
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    nav .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    nav .brand {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.7rem;
-      letter-spacing: 2px;
-      font-weight: 700;
-      color: var(--accent);
-      text-decoration: none;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2.5rem;
-      margin: 0;
-      padding: 0;
-    }
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: color 0.2s;
-    }
-    nav ul li a:hover {
-      color: var(--accent);
-    }
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(120deg, var(--primary) 70%, var(--accent));
-      color: #fff;
-      padding: 90px 0 60px 0;
-      text-align: center;
-      position: relative;
-    }
-    .hero-img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 6px solid #fff;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 6px 32px #1f29374d;
-    }
-    .hero h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-    }
-    .hero h1 span {
-      color: var(--accent);
-    }
-    .hero p {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-      color: #e0e7ef;
-    }
-    .hero .cta {
-      display: inline-block;
-      background: var(--accent);
-      color: var(--primary);
-      font-weight: 700;
-      font-size: 1.15rem;
-      padding: 0.8rem 2.2rem;
-      border-radius: 25px;
-      text-decoration: none;
-      transition: background 0.2s, color 0.2s, transform 0.18s, box-shadow 0.18s;
-      box-shadow: 0 2px 18px #0002;
-      margin-right: 1rem;
-    }
-    .hero .cta:hover {
-      background: #fff;
-      color: var(--primary);
-      transform: scale(1.07);
-      box-shadow: 0 8px 28px #6edff644;
-    }
-    /* Section Titles */
-    .section-title {
-      text-align: center;
-      margin: 3.5rem 0 2.2rem 0;
-    }
-    .section-title h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.2rem;
-      color: var(--primary);
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-    }
-    .section-title p {
-      color: var(--muted);
-      font-size: 1.07rem;
-      font-weight: 600;
-    }
-    /* About */
-    .about-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2.5rem;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-    }
-    .about-img {
-      width: 650px;
-      border-radius: 16px;
-      box-shadow: 0 2px 16px #1f29371a;
-    }
-    .about-info {
-      flex: 1 1 340px;
-      max-width: 530px;
-    }
-    .about-info h3 {
-      font-size: 1.3rem;
-      color: var(--accent);
-      margin-top: 0;
-    }
-    .about-info ul {
-      padding: 0;
-      margin: 1.2rem 0 0 0;
-      list-style: none;
-      color: var(--muted);
-      font-size: 1rem;
-    }
-    .about-info ul li {
-      margin-bottom: 0.6rem;
-    }
-    /* Skills */
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2.5rem;
-      justify-content: center;
-      margin-bottom: 2rem;
-    }
-    .skill-card {
-      background: var(--card-bg);
-      border-radius: 16px;
-      box-shadow: 0 4px 16px #1f293713;
-      padding: 2rem 2rem 1.5rem 2rem;
-      min-width: 220px;
-      flex: 1 1 210px;
-      text-align: center;
-    }
-    .skill-card .fa-solid, .skill-card .fa-brands {
-      font-size: 2.3rem;
-      color: var(--accent);
-      margin-bottom: 0.8rem;
-    }
-    .skill-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    .skill-bar-bg {
-      background: #e6edf5;
-      border-radius: 7px;
-      height: 10px;
-      width: 100%;
-      margin: 0.7rem 0 0.3rem 0;
-      overflow: hidden;
-    }
-    .skill-bar {
-      background: linear-gradient(90deg, var(--accent), var(--primary));
-      height: 10px;
-    }
-    /* Services */
-    .services-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2.5rem;
-      justify-content: center;
-    }
-    .service-card {
-      background: var(--card-bg);
-      border-radius: 16px;
-      box-shadow: 0 2px 12px #1f293713;
-      padding: 2rem 1.5rem;
-      min-width: 210px;
-      flex: 1 1 200px;
-      text-align: center;
-      transition: transform 0.15s, box-shadow 0.2s;
-    }
-    .service-card:hover {
-      transform: translateY(-7px) scale(1.03);
-      box-shadow: 0 12px 36px #6edff655;
-    }
-    .service-card .fa-solid, .service-card .fa-brands {
-      color: var(--accent);
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-    }
-    .service-title {
-      font-size: 1.13rem;
-      font-weight: 700;
-      margin-bottom: 0.6rem;
-      color: var(--primary);
-    }
-    /* Portfolio */
-    .portfolio-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2.2rem;
-      justify-content: center;
-    }
-    .portfolio-item {
-      background: var(--card-bg);
-      border-radius: 12px;
-      box-shadow: 0 4px 20px #6edff613;
-      overflow: hidden;
-      min-width: 280px;
-      max-width: 350px;
-      flex: 1 1 280px;
-      transition: transform 0.18s, box-shadow 0.18s;
-    }
-    .portfolio-item:hover {
-      transform: translateY(-8px) scale(1.025);
-      box-shadow: 0 12px 36px #6edff655;
-    }
-    .portfolio-img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-bottom: 3px solid var(--accent);
-    }
-    .portfolio-info {
-      padding: 1.2rem 1rem;
-      color: var(--primary);
-    }
-    .portfolio-info h4 {
-      margin: 0 0 0.4rem 0;
-      font-weight: 700;
-      font-size: 1.11rem;
-      color: var(--accent);
-    }
-    .portfolio-info p {
-      margin: 0 0 0.6rem 0;
-      font-size: 0.98rem;
-      color: var(--muted);
-    }
-    .portfolio-info .btn {
-      display: inline-block;
-      background: var(--accent);
-      color: var(--primary);
-      font-weight: 700;
-      border-radius: 16px;
-      padding: 3px 18px;
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: background 0.2s, color 0.2s, transform 0.18s, box-shadow 0.18s;
-    }
-    .portfolio-info .btn:hover {
-      background: var(--primary);
-      color: #fff;
-      transform: scale(1.07);
-      box-shadow: 0 8px 28px #6edff644;
-    }
-    /* Testimonials */
-    .testimonials-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2.3rem;
-      justify-content: center;
-    }
-    .testimonial-card {
-      background: var(--card-bg);
-      border-radius: 16px;
-      box-shadow: 0 2px 16px #1f293713;
-      padding: 2rem 1.7rem 1.4rem 1.7rem;
-      min-width: 260px;
-      max-width: 350px;
-      flex: 1 1 260px;
-      text-align: center;
-    }
-    .testimonial-img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 2px 16px #6edff622;
-      margin-bottom: 0.8rem;
-    }
-    .testimonial-name {
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 0.1rem;
-    }
-    .testimonial-role {
-      color: var(--muted);
-      font-size: 0.98rem;
-      margin-bottom: 0.7rem;
-    }
-    .testimonial-text {
-      font-style: italic;
-      color: var(--muted);
-      font-size: 1rem;
-    }
-    /* Contact */
-    .contact-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2.4rem;
-      justify-content: center;
-      align-items: flex-start;
-    }
-    .contact-details {
-      background: var(--card-bg);
-      border-radius: 12px;
-      box-shadow: 0 2px 12px #1f293713;
-      padding: 2rem 1.7rem;
-      min-width: 240px;
-    }
-    .contact-details .fa-solid, .contact-details .fa-brands {
-      color: var(--accent);
-      margin-right: 0.7rem;
-      width: 1.5em;
-      text-align: center;
-    }
-    .contact-details div {
-      margin-bottom: 1.2rem;
-      color: var(--primary);
-      font-weight: 600;
-    }
-    .contact-details .social-links a {
-      color: var(--accent);
-      font-size: 1.4rem;
-      margin-right: 1.1rem;
-      transition: color 0.2s;
-    }
-    .contact-details .social-links a:hover {
-      color: var(--primary);
-    }
-    .contact-form {
-      background: var(--card-bg);
-      border-radius: 12px;
-      box-shadow: 0 2px 12px #1f293713;
-      padding: 2rem 1.5rem;
-      min-width: 270px;
-      flex: 1 1 340px;
-    }
-    .contact-form input, .contact-form textarea {
-      width: 100%;
-      padding: 0.85rem 1rem;
-      margin-bottom: 1.1rem;
-      border: 1px solid #ccd6e7;
-      border-radius: 8px;
-      background: #f2f6fa;
-      font-size: 1rem;
-      font-family: 'Open Sans', Arial, sans-serif;
-      color: var(--primary);
-      resize: none;
-      transition: border 0.2s;
-    }
-    .contact-form input:focus, .contact-form textarea:focus {
-      border: 1.5px solid var(--accent);
-      outline: none;
-    }
-    .contact-form button {
-      background: var(--accent);
-      color: var(--primary);
-      font-weight: 700;
-      border: none;
-      border-radius: 16px;
-      padding: 0.7rem 2.3rem;
-      font-size: 1.08rem;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s;
-      box-shadow: 0 2px 12px #6edff622;
-    }
-    .contact-form button:hover {
-      background: var(--primary);
-      color: #fff;
-    }
-    /* Footer */
-    footer {
-      background: var(--primary);
-      color: #fff;
-      text-align: center;
-      padding: 2rem 0 1rem 0;
-      margin-top: 3rem;
-      font-size: 1rem;
-      letter-spacing: 0.7px;
-    }
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-      margin-left: 0.5rem;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-    /* Responsive */
-    @media (max-width: 900px) {
-      .about-row, .skills-grid, .services-grid, .portfolio-grid, .testimonials-grid, .contact-row {
-        flex-direction: column;
-        align-items: center;
-      }
-      nav ul {
-        gap: 1.5rem;
-      }
-    }
-    @media (max-width: 650px) {
-      .container {
-        width: 98%;
-      }
-      .hero h1 { font-size: 2rem; }
-      .section-title h2 { font-size: 1.5rem; }
-    }
+:root {
+  --primary: #1e213a;
+  --secondary: #f9d923;
+  --accent: #ff4e91;
+  --accent2: #23d8e6;
+  --bg: #1a1e2d;
+  --glass: rgba(255,255,255,0.15);
+  --glass-border: rgba(255,255,255,0.24);
+  --shadow: 0 8px 36px #0006;
+  --gradient: linear-gradient(120deg, #23d8e6 0%, #f9d923 60%, #ff4e91 100%);
+  /* Sunlight (light) theme colors */
+  --light-bg: #23253a;
+  --light-card: #23253a;
+  --light-card-border: #3b4062;
+  --light-shadow: 0 4px 18px #1e213a44;
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', Arial, sans-serif;
+  background: var(--bg);
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  transition: background 0.3s, color 0.3s;
+}
+body::before {
+  content: "";
+  z-index: 0;
+  position: fixed;
+  top: -80px; left: -80px; width: 120vw; height: 120vh;
+  background: radial-gradient(circle at 20% 40%, #23d8e633 0 20%,transparent 70%),
+              radial-gradient(circle at 80% 70%, #ff4e9177 0 15%,transparent 70%),
+              radial-gradient(circle at 60% 10%, #f9d92344 0 19%,transparent 65%);
+  filter: blur(18px) saturate(1.5);
+  animation: bgmove 30s linear infinite alternate;
+  transition: filter 0.3s, opacity 0.3s;
+}
+@keyframes bgmove {
+  0% { background-position: 0 0, 100% 100%, 50% 0; }
+  100% { background-position: 100% 0, 0 100%, 80% 100%; }
+}
+
+/* SUNLIGHT (LIGHT) MODE - now dark and vibrant, not white */
+body.light {
+  background: var(--light-bg);
+  color: #fff;
+}
+body.light::before {
+  filter: blur(18px) saturate(1.2) brightness(0.8);
+  opacity: 0.8;
+}
+body.light .header,
+body.light .carousel-card,
+body.light .cartoon-card,
+body.light #features,
+body.light .category-bar,
+body.light .feature-card {
+  background: var(--light-card) !important;
+  color: #fff !important;
+  border-color: var(--light-card-border) !important;
+  box-shadow: var(--light-shadow);
+}
+body.light .section-title {
+  color: #f9d923;
+  text-shadow: 0 2px 8px #f9d92333;
+}
+body.light .cartoon-info h3,
+body.light .carousel-title {
+  color: #f9d923 !important;
+}
+body.light .footer-links a,
+body.light .cartoon-rating,
+body.light .carousel-rating {
+  color: #23d8e6 !important;
+}
+body.light .cartoon-info p,
+body.light .cartoon-rating {
+  color: #e0e5ff;
+}
+body.light .feature-card {
+  background: linear-gradient(120deg, #23253a 40%, #23253a 100%) !important;
+  box-shadow: 0 2px 14px #1e213a44;
+  border-color: #3b4062 !important;
+}
+body.light .feature-card i {
+  color: #23d8e6;
+  text-shadow: 0 2px 8px #23d8e633;
+}
+body.light .favorite-btn {
+  background: #23253a !important;
+  color: #23d8e6 !important;
+}
+body.light .favorite-btn.active, body.light .favorite-btn:hover {
+  background: #23d8e6 !important;
+  color: #fff !important;
+}
+body.light input[type="text"]#search-input {
+  background: #23253a;
+  color: #23d8e6;
+  border-color: #f9d923;
+}
+body.light .cartoon-badge {
+  background: #f9d923;
+  color: #23253a;
+}
+body.light .footer-links a:hover {
+  color: #ff4e91;
+}
+
+body.light .profile-btn img {
+  box-shadow: 0 2px 14px #23d8e688, 0 0 0 5px #f9d92344;
+  border: 2.5px solid #fff;
+  background: var(--gradient);
+}
+body.light .profile-btn {
+  background: #23253a !important;
+  color: #23d8e6 !important;
+  border-color: #3b4062 !important;
+}
+
+body.light .cartoon-card,
+body.light .carousel-card {
+  box-shadow: 0 6px 24px #000a;
+}
+
+/* HEADER & LOGO */
+.header {
+  background: transparent;
+  color: #fff;
+  padding: 0 0 1px 0;
+  border-radius: 0 0 32px 32px;
+  position: relative;
+  min-height: 130px;
+  z-index: 2;
+}
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.3rem 2vw 0.3rem 2vw;
+  font-size: 1.08rem;
+  font-family: 'Montserrat',sans-serif;
+  font-weight: 700;
+}
+.brand-logo {
+  font-family: 'Fredoka One',cursive;
+  font-size: 2.35rem;
+  letter-spacing: 2px;
+  color: var(--secondary);
+  text-shadow: 0 2px 18px #f9d92355,0 1px 0 #0008;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.brand-logo .logo-3d {
+  width: 60px;
+  height: 60px;
+  border-radius: 18px 50% 18px 50%;
+  box-shadow: 0 3px 22px #23d8e6cc, 0 7px 18px #ff4e9177;
+  background: var(--gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5rem;
+  border: 3px solid #fff4;
+  animation: 3dspin 7s linear infinite;
+  filter: drop-shadow(0 2px 15px #23d8e6cc);
+}
+@keyframes 3dspin {
+  0% { transform: rotateY(0deg) scale(1);}
+  50% { transform: rotateY(180deg) scale(1.13);}
+  100% { transform: rotateY(360deg) scale(1);}
+}
+.topbar nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin-left: 2.5rem;
+}
+.topbar nav a {
+  color: #fff;
+  margin: 0 1.2rem;
+  font-weight: 600;
+  font-size: 1.13rem;
+  opacity: 0.9;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+  border-bottom: 2px solid transparent;
+}
+.topbar nav a:hover, .topbar nav a.active {
+  color: var(--accent2);
+  border-bottom: 2px solid var(--accent2);
+  opacity: 1;
+}
+.theme-switch {
+  margin-left: 1.2rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--accent2);
+  background: var(--glass);
+  padding: 7px 18px;
+  border-radius: 14px;
+  border: 1px solid var(--glass-border);
+  transition: background 0.2s, color 0.2s, filter 0.2s;
+  box-shadow: 0 2px 10px #23d8e644;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.theme-switch:active { filter: brightness(1.2) }
+.theme-switch:hover { background: #fff2; color: var(--secondary);}
+.profile-btn {
+  background: var(--glass);
+  color: var(--accent2);
+  border: 2px solid var(--glass-border);
+  border-radius: 50%;
+  width: 60px; height: 60px;
+  font-size: 1.7rem;
+  display: flex; align-items: center; justify-content: center;
+  margin-left: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 2px 18px #ff4e9144;
+  transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: visible;
+  z-index: 10;
+}
+.profile-btn img {
+  border-radius:50%;
+  width: 48px;
+  height: 48px;
+  box-shadow: 0 2px 14px #23d8e688, 0 0 0 5px #f9d92344;
+  border: 2.5px solid #fff;
+  background: var(--gradient);
+  object-fit: cover;
+  margin: 0;
+  transition: transform 0.32s cubic-bezier(.22,1,.36,1);
+}
+.profile-btn:hover img {
+  transform: scale(1.19) rotate(-8deg);
+  box-shadow: 0 7px 28px #ff4e91bb, 0 0 0 9px #23d8e644;
+}
+.profile-btn::before {
+  content: '';
+  position: absolute;
+  top: -10px; left: -10px;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  z-index: -1;
+  background: radial-gradient(circle, #23d8e655 0%, transparent 80%);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* HERO BANNER & CHARACTERS */
+.hero-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 2.2rem 4vw 1.1rem 4vw;
+  position: relative;
+  z-index: 2;
+}
+.hero-info {
+  max-width: 590px;
+  z-index: 1;
+}
+.hero-info h1 {
+  font-family: 'Fredoka One',cursive;
+  font-size: 2.9rem;
+  color: var(--secondary);
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  line-height: 1.13;
+  text-shadow: 0 3px 10px #ff4e9133;
+}
+.hero-info p {
+  font-size: 1.22rem;
+  margin-bottom: 2rem;
+  color: #e3e3e3;
+}
+.hero-cta {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.18rem;
+  padding: 0.9rem 2.4rem;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px #ff4e9144;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 1.2px;
+  transition: background 0.18s, color 0.18s, transform 0.18s, box-shadow 0.18s;
+}
+.hero-cta:hover {
+  background: var(--accent2);
+  color: var(--primary);
+  transform: scale(1.09) translateZ(10px);
+}
+.hero-visual {
+  width: 420px;
+  height: 370px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  perspective: 1200px;
+}
+.hero-characters {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 98%;
+  height: 360px;
+  perspective: 1200px;
+}
+.hero-characters img {
+  width: 120px;
+  height: 200px;
+  max-width: 140px;
+  object-fit: contain;
+  border-radius: 24px;
+  box-shadow: 0 8px 40px #1e213a99, 0 2px 10px #23d8e6aa;
+  animation: float3d 2.5s ease-in-out infinite alternate;
+  margin: 0 8px;
+  border: 3px solid #fff8;
+  background: var(--glass);
+  filter: drop-shadow(0 2px 16px #ff4e9188);
+  transition: transform 0.33s;
+}
+.hero-characters img:nth-child(1) { animation-delay: 0s; transform: rotateY(-16deg) scale(1.1); }
+.hero-characters img:nth-child(2) { animation-delay: .6s; transform: rotateY(11deg) scale(1.08);}
+.hero-characters img:nth-child(3) { animation-delay: .2s; transform: rotateY(-8deg) scale(1.13);}
+.hero-characters img:nth-child(4) { animation-delay: 1.1s; transform: rotateY(17deg) scale(1.07);}
+@keyframes float3d {
+  0% { transform: translateY(0) scale(1.09) rotateY(-6deg);}
+  60% { transform: translateY(-17px) scale(1.14) rotateY(5deg);}
+  100% { transform: translateY(0) scale(1.09) rotateY(-6deg);}
+}
+
+/* CAROUSEL */
+.carousel {
+  margin: 2.2rem auto 1.3rem auto;
+  max-width: 900px;
+  overflow-x: auto;
+  display: flex;
+  gap: 1.5rem;
+  padding-bottom: 0.4rem;
+  scroll-behavior: smooth;
+  z-index: 3;
+  position:relative;
+}
+.carousel-card {
+  min-width: 240px;
+  max-width: 280px;
+  background: var(--glass);
+  border: 2px solid var(--glass-border);
+  border-radius: 22px;
+  box-shadow: 0 7px 32px #23d8e644;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform .22s, box-shadow .18s;
+  cursor: pointer;
+  position: relative;
+  backdrop-filter: blur(6px);
+}
+.carousel-card img {
+  width: 96%;
+  height: 180px;
+  object-fit: contain;
+  margin-top: 1.3rem;
+  border-radius: 18px;
+  background: #fff3;
+  box-shadow: 0 4px 20px #23d8e6aa;
+  border: 2.5px solid #fff8;
+  filter: drop-shadow(0 7px 30px #ff4e9199);
+  transition: transform 0.28s cubic-bezier(.38,1.3,.36,1), box-shadow 0.28s;
+}
+.carousel-card:hover img {
+  transform: scale(1.09) rotate(-6deg);
+  box-shadow: 0 14px 40px #f9d923bb;
+}
+.carousel-card .carousel-title {
+  font-family: 'Montserrat',sans-serif;
+  font-size: 1.15rem;
+  color: var(--secondary);
+  margin: 0.7rem 0 0.2rem 0;
+  text-align: center;
+  font-weight: 700;
+  text-shadow: 0 2px 10px #ff4e9188;
+}
+.carousel-card .carousel-rating {
+  color: #f9d923;
+  font-size: 1.17rem;
+  margin-bottom: 0.7rem;
+  letter-spacing: 0.08em;
+}
+.carousel-card:hover {
+  transform: scale(1.11) rotateY(6deg);
+  box-shadow: 0 18px 56px #23d8e6bb;
+  z-index: 2;
+}
+.carousel-card .watch-btn {
+  margin: 0.7rem 0 1.2rem 0;
+}
+
+/* CATEGORY BAR */
+.category-bar {
+  background: var(--glass);
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  gap: 1.3rem;
+  padding: 0.7rem 2.5vw;
+  border-bottom: 2px solid #f9d92322;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 1.5rem;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 2px 13px #f9d92322;
+  backdrop-filter: blur(6px);
+}
+.category-bar .cat-btn {
+  background: #fff2;
+  border: none;
+  border-radius: 17px;
+  padding: 0.5rem 1.2rem;
+  color: var(--secondary);
+  font-weight: 600;
+  font-size: 1.07rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 2px 12px #f9d92311;
+  transition: background 0.16s, color 0.16s, transform 0.13s;
+}
+.category-bar .cat-btn.active, .category-bar .cat-btn:hover {
+  background: var(--accent2);
+  color: var(--primary);
+  transform: scale(1.07);
+}
+
+/* MAIN & GRID */
+main {
+  margin: 0 auto;
+  max-width: 1240px;
+  padding: 1.5rem 1rem 0 1rem;
+  z-index: 3;
+  position: relative;
+}
+.section-title {
+  font-family: 'Fredoka One',cursive;
+  font-size: 2.1rem;
+  color: var(--accent2);
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 10px #f9d92344;
+}
+.cartoons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.2rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+  perspective: 1200px;
+}
+.cartoon-card {
+  background: var(--glass);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  min-width: 220px;
+  min-height: 390px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.23s, transform 0.18s;
+  cursor: pointer;
+  position: relative;
+  border: 2px solid var(--glass-border);
+  backdrop-filter: blur(6px);
+}
+.cartoon-card:hover {
+  box-shadow: 0 24px 88px #23d8e6cc, 0 8px 22px #ff4e9155;
+  transform: scale(1.07) translateY(-7px) rotateY(7deg);
+  z-index: 2;
+}
+.cartoon-img-wrap {
+  width: 95%;
+  height: 200px;
+  border-radius: 22px 22px 0 0;
+  overflow: hidden;
+  background: #fff2;
+  margin-top: 1.1rem;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 3px 18px #23d8e644;
+}
+.cartoon-img-wrap img {
+  width: 100%; max-width: 200px; height: 100%; object-fit: contain; background: #fff2;
+  transition: transform 0.21s, box-shadow 0.21s;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px #ff4e9188;
+}
+.cartoon-card:hover .cartoon-img-wrap img {
+  transform: scale(1.15) rotate(-3deg);
+  box-shadow: 0 8px 28px #f9d923cc;
+}
+.cartoon-info {
+  padding: 1.05rem 1.1rem 1.2rem 1.1rem;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.cartoon-info h3 {
+  font-size: 1.28rem;
+  margin: 0.4rem 0 0.4rem 0;
+  color: var(--secondary);
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 8px #23d8e644;
+}
+.cartoon-info p {
+  font-size: 1.06rem;
+  color: #ffe5c7;
+  margin-bottom: 0.8rem;
+  flex: 1;
+}
+.watch-btn {
+  background: var(--accent2);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.04rem;
+  border: none;
+  border-radius: 18px;
+  padding: 0.7rem 1.7rem;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, box-shadow 0.17s, transform 0.17s;
+  box-shadow: 0 2px 12px #2dd5ff22;
+  letter-spacing: 1px;
+  margin-top: 0.4rem;
+  text-decoration:none;
+  display: inline-block;
+}
+.watch-btn:hover {
+  background: var(--accent);
+  color: #fffbe6;
+  box-shadow: 0 8px 22px #ff4e9188;
+  transform: scale(1.10);
+}
+.favorite-btn {
+  position: absolute;
+  top: 18px; right: 23px;
+  background: #fff7;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.46rem;
+  color: var(--accent2);
+  width: 46px; height: 46px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 12px #23d8e633;
+  transition: background 0.15s, color 0.17s, box-shadow 0.17s;
+  z-index: 3;
+}
+.favorite-btn.active, .favorite-btn:hover {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 8px 22px #ff4e9199;
+}
+.cartoon-badge {
+  position: absolute;
+  top: 18px;
+  left: 23px;
+  background: var(--secondary);
+  color: #222;
+  font-size: 0.99rem;
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 4px 15px;
+  letter-spacing: 0.7px;
+  box-shadow: 0 2px 14px #23d8e633;
+}
+.cartoon-rating {
+  margin: 0.3rem 0 0.5rem 0;
+  color: #f9d923;
+  font-size: 1.09rem;
+  letter-spacing: 0.12rem;
+}
+
+/* BASE STYLING */
+body {
+  margin: 0;
+  padding: 2rem;
+  font-family: sans-serif;
+  background: #111; /* Default: Dark Mode */
+  color: white;
+}
+
+body.light {
+  background: #f0e7d8 !important;
+  color: #23253a !important;
+}
+
+/* FEATURES LIST CONTAINER */
+.features-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.2rem;
+  margin-top: 2rem;
+}
+
+/* INDIVIDUAL FEATURE CARD */
+.feature-card {
+  background: rgba(30, 58, 51, 0.95); /* Default dark mode */
+  border-radius: 22px;
+  box-shadow: 0 4px 18px yellow, 0 1.5px 8px blueviolet;
+  border: 1.5px solid #23d8e633;
+  padding: 1.8rem 1.5rem;
+  max-width: 260px;
+  flex: 1 0 210px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 190px;
+  backdrop-filter: blur(2.5px);
+  transition: box-shadow 0.18s, transform 0.17s, background 0.18s;
+  position: relative;
+  color: #fff;
+}
+
+/* FEATURE HOVER EFFECT */
+.feature-card:hover {
+  transform: scale(1.04) translateY(-5px);
+  box-shadow: 0 10px 32px palevioletred, 0 6px 18px #f7b73133;
+  background: #fff;
+  color: #23253a;
+}
+
+/* FEATURE ICON */
+.feature-card i {
+  font-size: 2.3rem;
+  color: #f9d923;
+  margin-bottom: 0.7rem;
+  filter: drop-shadow(0 2px 8px #ff99dd);
+}
+
+/* FEATURE TITLE */
+.feature-card h4 {
+  margin: 0.4rem 0 0.7rem 0;
+  font-size: 1.15rem;
+  color: #f9d923;
+  font-weight: bold;
+}
+
+/* FEATURE TEXT */
+.feature-card p {
+  color: hsl(322, 56%, 61%);
+  font-size: 1rem;
+  line-height: 1.52;
+}
+
+/* LIGHT MODE OVERRIDES */
+body.light .feature-card {
+  background: hwb(187 21% 29% / 0.949) !important;
+  color: #fff !important;
+  border: 1.5px solid lch(60.4% 56.32 337.94) !important;
+  box-shadow: 0 4px 18px #ffde59, 0 1.5px 8px #caa0ff !important;
+}
+
+body.light .feature-card h4 {
+  color: #23253a !important;
+}
+
+body.light .feature-card i {
+  color: #23d8e6 !important;
+  filter: drop-shadow(0 2px 8px #09d8e722) !important;
+}
+
+body.light .feature-card p {
+  color: #444 !important;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 900px) {
+  .features-list {
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: stretch;
+  }
+  .feature-card {
+    max-width: 96vw;
+    min-width: 0;
+    margin: 0 auto;
+    padding: 1.3rem 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .features-list {
+    gap: 0.7rem;
+  }
+  .feature-card {
+    max-width: 99vw;
+    padding: 0.98rem 0.7rem;
+    font-size: 0.98em;
+  }
+  .feature-card h4 {
+    font-size: 1rem;
+  }
+  .feature-card i {
+    font-size: 2rem;
+  }
+}
+
+/* FOOTER */
+footer {
+  background: var(--primary);
+  color: #fff;
+  text-align: center;
+  padding: 2.2rem 0 1.2rem 0;
+  margin-top: 2rem;
+  font-size: 1.05rem;
+  letter-spacing: 0.7px;
+  border-radius: 30px 30px 0 0;
+  box-shadow: 0 -6px 24px #23d8e644;
+}
+.footer-links {
+  margin: 1.1rem 0 0.5rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 2.2rem;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  color: var(--accent2);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.04rem;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.footer-links a:hover { text-decoration: underline; color: var(--accent); opacity: 1;}
+
+/* INPUT */
+input[type="text"]#search-input {
+  padding:0.6rem 1.2rem;font-size:1.1rem;border-radius:16px;border:1.5px solid var(--accent2);width:260px;max-width:90%;margin-bottom:.5rem;outline:none;background:#fff1;color:#fff;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1040px) {
+  .hero-banner { flex-direction: column-reverse; gap: 1.1rem; padding: 1.2rem 1rem 0.3rem 1rem; text-align: center;}
+  .hero-visual { width: 340px; height: 250px;}
+  .carousel-card img { height: 110px;}
+  .cartoon-img-wrap { height: 110px;}
+  .hero-characters img { width: 80px; height: 130px; }
+}
+@media (max-width:600px) {
+  .topbar nav { margin-left: 0; }
+  .topbar, .category-bar { flex-direction: column; gap: 0.6rem;}
+  .cartoons-grid { grid-template-columns: 1fr; }
+  .carousel { gap:.5rem;}
+  .brand-logo .logo-3d { width: 38px; height: 38px;}
+  .profile-btn { width: 44px; height: 44px;}
+  .profile-btn img { width: 32px; height: 32px;}
+  .hero-visual { width: 170px; height: 110px;}
+}
   </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav>
-    <div class="container">
-      <a href="#home" class="brand">Sobia Liaqat</a>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <img src="images/Capturess.png" alt="Sobia Liaqat" class="hero-img">
-    <h1>Sobia Liaqat<br>
-      <span>Web Developer & Designer| WordPress </span>
-    </h1>
-    <p>I create modern websites & digital solutions for growing businesses.<br>Expert in WordPress, Laravel, PHP, Python, Django, HTML, CSS, Bootstrap & SEO.</p>
-    <a href="#contact" class="cta">Hire Me</a>
-    <a href="https://drive.google.com/file/d/10-EGFEXyt6AmAMGAZIvhvl9L_RYVZang/view?usp=sharing" class="cta" style="background:#fff;color:#1f2937;">Download CV</a>
-  </section>
-  <!-- About -->
-  <section id="about">
-    <div class="container">
-      <div class="section-title">
-        <h2>About Me</h2>
-        <p>Passionate. Creative. Reliable.</p>
+  <!-- Header -->
+  <header class="header">
+    <div class="topbar">
+      <div class="brand-logo">
+        <span class="logo-3d">
+          <i class="fa fa-cube" style="font-size:2.2rem;color:#fff;text-shadow:0 2px 18px #23d8e6b3,0 1px 0 #0008;"></i>
+        </span>
+        NeoCartoon 3D
       </div>
-      <div class="about-row">
-        <img src="images/hero-img2.jpg" alt="About Sobia" class="about-img">
-        <div class="about-info">
-          <h3>Hello! I'm Sobia Liaqat</h3>
-          <p>
-            I'm a creative web developer and designer based in Islamabad, Pakistan. I specialize in <strong>PHP</strong>, <strong>Laravel</strong>, <strong>Python</strong>, <strong>Django</strong>, <strong>WordPress</strong>, and <strong>SEO</strong>, helping brands and businesses build stunning, high-performing websites and digital content. My goal is to deliver solutions that are not only beautiful, but also effective and easy to use.
-          </p>
-          <ul>
-            <li><strong>Email:</strong> sobialiaqatvu2@gmail.com</li>
-            <li><strong>Phone:</strong> +92 343 9569001</li>
-            <li><strong>Location:</strong> Islamabad, Pakistan</li>
-          </ul>
+      <nav>
+        <a href="#cartoons" class="active"><i class="fa fa-film"></i> Cartoons</a>
+        <a href="#features"><i class="fa fa-star"></i> Features</a>
+        <a href="#contact"><i class="fa fa-envelope"></i> Contact</a>
+      </nav>
+      <span class="theme-switch" onclick="toggleTheme()" title="Switch Theme">
+        <i class="fa fa-moon"></i>
+        <span style="margin-left:7px;font-size:1.09rem;">Theme</span>
+      </span>
+      <!-- Changed from <button> to <a> for working profile link -->
+      <a class="profile-btn" title="Profile" href="profile.html">
+        <img src="https://api.dicebear.com/8.x/bottts/svg?seed=Cartoon" alt="Profile">
+      </a>
+    </div>
+    <div class="hero-banner">
+      <div class="hero-info">
+        <h1>Welcome to <span style="color:var(--accent2)">Your Animated Universe</span></h1>
+        <p>Stream the most popular 3D cartoons, add your favorites, and discover new adventures in a playful universe made just for you!</p>
+        <a href="#cartoons" class="hero-cta"><i class="fa fa-play"></i> Watch Now</a>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-characters">
+          <img src="images/yy.png" alt="Toy Story">
+          <img src="images/ff.png" alt="Shrek">
+          <img src="images/33.png" alt="Elsa Frozen">
+          <img src="images/we.png" alt="SpongeBob">
         </div>
       </div>
     </div>
-  </section>
-  <!-- Skills -->
-  <section id="skills">
-    <div class="container">
-      <div class="section-title">
-        <h2>Skills</h2>
-        <p>Tech Stack & Expertise</p>
-      </div>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <i class="fa-brands fa-wordpress"></i>
-          <div class="skill-title">WordPress</div>
-          <div class="skill-bar-bg"><div class="skill-bar" style="width:95%"></div></div>
-          <div style="color:var(--muted);font-size:0.97rem;">95%</div>
-        </div>
-        <div class="skill-card">
-          <i class="fa-brands fa-laravel"></i>
-          <div class="skill-title">Laravel</div>
-          <div class="skill-bar-bg"><div class="skill-bar" style="width:90%"></div></div>
-          <div style="color:var(--muted);font-size:0.97rem;">90%</div>
-        </div>
-        <div class="skill-card">
-          <i class="fa-brands fa-python"></i>
-          <div class="skill-title">Python</div>
-          <div class="skill-bar-bg"><div class="skill-bar" style="width:85%"></div></div>
-          <div style="color:var(--muted);font-size:0.97rem;">85%</div>
-        </div>
-        <div class="skill-card">
-          <i class="fa-brands fa-python"></i>
-          <div class="skill-title">Django</div>
-          <div class="skill-bar-bg"><div class="skill-bar" style="width:80%"></div></div>
-          <div style="color:var(--muted);font-size:0.97rem;">80%</div>
-        </div>
-        <div class="skill-card">
-          <i class="fa-solid fa-magnifying-glass-chart"></i>
-          <div class="skill-title">SEO</div>
-          <div class="skill-bar-bg"><div class="skill-bar" style="width:85%"></div></div>
-          <div style="color:var(--muted);font-size:0.97rem;">85%</div>
-        </div>
-        <div class="skill-card">
-          <i class="fa-solid fa-pen-nib"></i>
-          <div class="skill-title">Content Writing</div>
-          <div class="skill-bar-bg"><div class="skill-bar" style="width:82%"></div></div>
-          <div style="color:var(--muted);font-size:0.97rem;">82%</div>
-        </div>
-        <div class="skill-card">
-          <i class="fa-brands fa-canva"></i>
-          <div class="skill-title">Canva Design</div>
-          <div class="skill-bar-bg"><div class="skill-bar" style="width:90%"></div></div>
-          <div style="color:var(--muted);font-size:0.97rem;">90%</div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Services -->
-  <section id="services">
-    <div class="container">
-      <div class="section-title">
-        <h2>Services</h2>
-        <p>What I Offer</p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card">
-          <i class="fa-solid fa-code"></i>
-          <div class="service-title">Web Development</div>
-          <div>Responsive, high-performance websites & web apps (PHP, Python, Laravel, Django, WordPress, HTML, CSS, JS, Bootstrap).</div>
-        </div>
-        <div class="service-card">
-          <i class="fa-brands fa-wordpress"></i>
-          <div class="service-title">WordPress Expert</div>
-          <div>Custom themes, plugins, eCommerce, and CMS solutions for your business.</div>
-        </div>
-        <div class="service-card">
-          <i class="fa-solid fa-chart-line"></i>
-          <div class="service-title">SEO & Content</div>
-          <div>SEO-optimized content writing, keyword research, and digital marketing strategies.</div>
-        </div>
-        <div class="service-card">
-          <i class="fa-solid fa-paintbrush"></i>
-          <div class="service-title">Graphic Design</div>
-          <div>Logos, branding, business cards, and social media graphics (Canva & Adobe tools).</div>
-        </div>
-        <div class="service-card">
-          <i class="fa-solid fa-video"></i>
-          <div class="service-title">Video Editing</div>
-          <div>Professional video editing for YouTube, social platforms, and advertisements.</div>
-        </div>
-        <div class="service-card">
-          <i class="fa-solid fa-headset"></i>
-          <div class="service-title">Consulting & Support</div>
-          <div>Project planning, digital consulting, and ongoing support for your online success.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Portfolio -->
-  <section id="portfolio">
-    <div class="container">
-      <div class="section-title">
-        <h2>Portfolio</h2>
-        <p>Featured Projects</p>
-      </div>
-      <div class="portfolio-grid">
-        <div class="portfolio-item">
-          <img src="images/img4.jpg" class="portfolio-img" alt="Business Web Platform">
-          <div class="portfolio-info">
-            <h4>Business Web Platform</h4>
-            <p>Laravel + Vue.js, custom admin panel, live analytics</p>
-            <a href="https://github.com/Sobia122/online-drc-laravel" class="btn">View Project</a>
-          </div>
-        </div>
-        <div class="portfolio-item">
-          <img src="images/work-6.jpg" class="portfolio-img" alt="WordPress E-Commerce">
-          <div class="portfolio-info">
-            <h4>WordPress E-Commerce</h4>
-            <p>WooCommerce, payment integration, SEO optimized</p>
-            <a href="#" class="btn">View Project</a>
-          </div>
-        </div>
-        <div class="portfolio-item">
-          <img src="images/pexels-minan1398-1134190.jpg" class="portfolio-img" alt="Travel Guide Website">
-          <div class="portfolio-info">
-            <h4>Travel Guide Website</h4>
-            <p>Custom map integration, blog, responsive UI</p>
-            <a href="https://github.com/Sobia122/online-tourist-guide" class="btn">View Project</a>
-          </div>
-        </div>
-        <!-- Add more portfolio items as needed -->
-      </div>
-    </div>
-  </section>
-  <!-- Testimonials -->
-  <section id="testimonials">
-    <div class="container">
-      <div class="section-title">
-        <h2>Testimonials</h2>
-        <p>What Clients Say</p>
-      </div>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-<img src="https://randomuser.me/api/portraits/men/32.jpg" class="testimonial-img" alt="Client 1">
-          <div class="testimonial-name">Ali Raza</div>
-          <div class="testimonial-role">CEO, TechStart</div>
-          <div class="testimonial-text">
-            "Sobia delivered our project on time and exceeded our expectations. The website is fast, modern, and user-friendly. Highly recommended!"
-          </div>
-        </div>
-        <div class="testimonial-card">
-<img src="https://randomuser.me/api/portraits/women/44.jpg" class="testimonial-img" alt="Client 2">
-          <div class="testimonial-name">Maria Khan</div>
-          <div class="testimonial-role">Blogger, Travel Diaries</div>
-          <div class="testimonial-text">
-            "Amazing experience! Sobia designed a beautiful, responsive blog for me and provided great SEO advice."
-          </div>
-        </div>
-        <div class="testimonial-card">
-<img src="https://randomuser.me/api/portraits/men/76.jpg" class="testimonial-img" alt="Client 3">
-          <div class="testimonial-name">Imran Sheikh</div>
-          <div class="testimonial-role">Business Owner</div>
-          <div class="testimonial-text">
-            "Professional, creative, and reliable. Communication was easy and my eCommerce site looks fantastic!"
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-<!-- Contact -->
-<section id="contact">
-  <div class="container">
-    <div class="section-title">
-      <h2>Contact</h2>
-      <p>Let's discuss your project!</p>
-    </div>
-    <div class="contact-row">
-      <div class="contact-details">
-        <div><i class="fa-solid fa-location-dot"></i> Islamabad, Pakistan</div>
-        <div><i class="fa-solid fa-phone"></i> +92 343 9569001</div>
-        <div><i class="fa-solid fa-envelope"></i> sobialiaqatvu2@gmail.com</div>
-        <div class="social-links">
-          <a href="#"><i class="fa-brands fa-twitter"></i></a>
-          <a href="#"><i class="fa-brands fa-facebook"></i></a>
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/sobialiaqat/"><i class="fa-brands fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <!-- ✅ Working Contact Form via FormSubmit -->
-<form class="contact-form" action="https://formsubmit.co/sobialiaqatvu2@gmail.com" method="POST">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_template" value="table">
-  <input type="hidden" name="_autoresponse" value="Thank you for contacting me. I’ll get back to you soon!">
-
-  <input type="text" name="name" placeholder="Your Name" required>
-  <input type="email" name="email" placeholder="Your Email" required>
-  <input type="text" name="subject" placeholder="Subject" required>
-  <textarea name="message" rows="5" placeholder="Message" required></textarea>
-  <button type="submit">Send Message</button>
-</form>
-
-    </div>
+  </header>
+  <!-- Carousel -->
+  <div class="carousel" id="carousel"></div>
+  <!-- Category Bar -->
+  <div class="category-bar" id="category-bar">
+    <button class="cat-btn active" data-cat="all">All</button>
+    <button class="cat-btn" data-cat="adventure">Adventure</button>
+    <button class="cat-btn" data-cat="comedy">Comedy</button>
+    <button class="cat-btn" data-cat="kids">Kids</button>
+    <button class="cat-btn" data-cat="action">Action</button>
+    <button class="cat-btn" data-cat="superhero">Superhero</button>
+    <button class="cat-btn" data-cat="fantasy">Fantasy</button>
   </div>
-</section>
-
-  <!-- Footer -->
+  <main>
+    <section class="cartoons-section" id="cartoons">
+      <h2 class="section-title">Famous 3D Cartoons</h2>
+      <div style="text-align:center;margin-bottom:1.2rem;">
+        <input id="search-input" type="text" placeholder="Search cartoons...">
+      </div>
+      <div class="cartoons-grid" id="cartoons-grid"></div>
+    </section>
+    <section id="features">
+      <h2 class="section-title">Platform Features</h2>
+      <div class="features-list">
+        <div class="feature-card">
+          <i class="fa fa-play-circle"></i>
+          <h4>Instant Streaming</h4>
+          <p>Watch episodes in one click, instantly streaming from YouTube and other platforms.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fa fa-heart"></i>
+          <h4>Add to Favorites</h4>
+          <p>Click the <i class="fa fa-heart"></i> icon on any cartoon to save it to your favorites list.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fa fa-child"></i>
+          <h4>Kid Safe Mode</h4>
+          <p>Enable Kid Safe Mode for a worry-free, family-friendly experience.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fa fa-palette"></i>
+          <h4>Theme Switcher</h4>
+          <p>Switch between dark and light themes for your personal vibe.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fa fa-crown"></i>
+          <h4>Animated Universe</h4>
+          <p>Enjoy playful animated backgrounds and a glassmorphic UI.</p>
+        </div>
+      </div>
+    </section>
+    <section class="contact-section" id="contact">
+      <h2 class="section-title">Contact Support</h2>
+      <p>Want to suggest a cartoon or need help? Email us at <a href="mailto:support@neocartoon3d.com">support@neocartoon3d.com</a></p>
+    </section>
+  </main>
   <footer>
-    <div>
-      © 2025 <strong>Sobia Liaqat</strong> | All Rights Reserved<br>
-      Enhanced by <a href="#">Sobia Liaqat</a>
+    <div class="footer-links">
+      <a href="#"><i class="fa fa-info-circle"></i> About</a>
+      <a href="#"><i class="fa fa-film"></i> Cartoons</a>
+      <a href="#"><i class="fa fa-star"></i> Features</a>
+      <a href="#"><i class="fa fa-heart"></i> Favorites</a>
+      <a href="#"><i class="fa fa-envelope"></i> Contact</a>
     </div>
+    <p>© 2025 NeoCartoon 3D. All Rights Reserved.</p>
   </footer>
+  <script>
+const CARTOONS = [
+  {
+    id: 1,
+    name: "Toy Story",
+    cat: "adventure kids fantasy",
+    img: "https://upload.wikimedia.org/wikipedia/en/1/13/Toy_Story.jpg",
+    desc: "Woody, Buzz and friends embark on amazing toy adventures.",
+    rating: 5,
+    badge: "Classic",
+    yt: "https://www.youtube.com/results?search_query=Toy+Story+full+movie+official"
+  },
+  {
+    id: 2,
+    name: "Shrek",
+    cat: "comedy fantasy adventure",
+    img: "https://static.wikia.nocookie.net/ultimatepopculture/images/3/39/Shrek.jpg/revision/latest/scale-to-width-down/220?cb=20210311141139",
+    desc: "An ogre, a donkey, and a princess—unforgettable fairy tale fun.",
+    rating: 5,
+    badge: "Family Favorite",
+    yt: "https://www.youtube.com/results?search_query=Shrek+full+movie+official"
+  },
+  {
+    id: 3,
+    name: "Frozen",
+    cat: "fantasy kids adventure",
+    img: "https://upload.wikimedia.org/wikipedia/en/0/05/Frozen_%282013_film%29_poster.jpg",
+    desc: "Sisters Elsa and Anna discover the magic of love and ice.",
+    rating: 4,
+    badge: "Popular",
+    yt: "https://www.youtube.com/results?search_query=Frozen+full+movie+official"
+  },
+  {
+    id: 4,
+    name: "SpongeBob SquarePants",
+    cat: "comedy kids adventure",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDL8090FD246QGoKTv-Hito0eIg_TdaUyBAl8vvMY4TQw9Ap9jFYZt4QHbfi84DNIKnVSX",
+    desc: "Underwater hilarity with SpongeBob and friends in Bikini Bottom.",
+    rating: 5,
+    badge: "All Time Hit",
+    yt: "https://www.youtube.com/results?search_query=SpongeBob+SquarePants+full+episodes+official"
+  },
+  {
+    id: 5,
+    name: "Kung Fu Panda",
+    cat: "action adventure fantasy",
+    img: "https://upload.wikimedia.org/wikipedia/en/7/76/Kungfupanda.jpg",
+    desc: "Po, the lovable panda, becomes an unlikely kung fu hero.",
+    rating: 4,
+    badge: "Superhit",
+    yt: "https://www.youtube.com/results?search_query=Kung+Fu+Panda+full+movie+official"
+  },
+  {
+    id: 6,
+    name: "The Incredibles",
+    cat: "action superhero kids",
+    img: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSkuu8Al5YSdfpFDiAOG0WZ7fAsPvIgyVE0aT29sLfz-H23Hs_k",
+    desc: "A family of undercover superheroes saves the world, together.",
+    rating: 5,
+    badge: "Superhero",
+    yt: "https://www.youtube.com/results?search_query=The+Incredibles+full+movie+official"
+  },
+  {
+    id: 7,
+    name: "Despicable Me",
+    cat: "comedy kids",
+    img: "https://upload.wikimedia.org/wikipedia/en/c/c0/Despicable_Me_%282010_animated_feature_film%29.jpg",
+    desc: "Gru and his Minions bring laughter and heartwarming moments.",
+    rating: 4,
+    badge: "Minion Mania",
+    yt: "https://www.youtube.com/results?search_query=Despicable+Me+full+movie+official"
+  },
+  {
+    id: 8,
+    name: "Ben 10",
+    cat: "action superhero kids",
+    img: "https://m.media-amazon.com/images/M/MV5BYWVjODZjNDgtYjk4ZS00OTg5LTg5NDQtZDMxZDQ4ZmM5MGJmXkEyXkFqcGc@._V1_.jpg",
+    desc: "Ben Tennyson uses the Omnitrix to become amazing aliens.",
+    rating: 4,
+    badge: "Superhero",
+    yt: "https://www.youtube.com/results?search_query=Ben+10+full+episodes+official"
+  }
+];
+
+// Carousel rendering (top 5 by rating, or first 5)
+function renderCarousel() {
+  const box = document.getElementById('carousel');
+  box.innerHTML = '';
+  const topToons = CARTOONS.slice(0,5);
+  for (const toon of topToons) {
+    box.innerHTML += `
+      <div class="carousel-card" onclick="window.open('${toon.yt}','_blank')">
+        <img src="${toon.img}" alt="${toon.name}">
+        <div class="carousel-title">${toon.name}</div>
+        <div class="carousel-rating">${"★".repeat(toon.rating)}${toon.rating<5?"<span style='color:#aaa;'>"+("★".repeat(5-toon.rating))+"</span>":""}</div>
+        <a href="${toon.yt}" class="watch-btn" target="_blank"><i class="fa fa-play"></i> Watch</a>
+      </div>
+    `;
+  }
+}
+renderCarousel();
+
+// Favorites logic
+let favorites = JSON.parse(localStorage.getItem('cartoon_favorites')||"[]");
+function toggleFavorite(id) {
+  const idx = favorites.indexOf(id);
+  if (idx>-1) favorites.splice(idx,1); else favorites.push(id);
+  localStorage.setItem('cartoon_favorites',JSON.stringify(favorites));
+  renderCartoons(currentCat);
+}
+let searchTerm = "";
+let currentCat = "all";
+
+function renderCartoons(cat = "all") {
+  currentCat = cat;
+  const grid = document.getElementById('cartoons-grid');
+  grid.innerHTML = "";
+  let shown = 0;
+  CARTOONS.forEach(toon => {
+    if ((cat !== "all" && !toon.cat.includes(cat)) || (searchTerm && !toon.name.toLowerCase().includes(searchTerm) && !toon.desc.toLowerCase().includes(searchTerm))) return;
+    shown++;
+    grid.innerHTML += `
+      <div class="cartoon-card" data-id="${toon.id}">
+        <button class="favorite-btn${favorites.includes(toon.id)?" active":""}" title="Add to Favorites" onclick="event.stopPropagation();toggleFavorite(${toon.id})">
+          <i class="fa${favorites.includes(toon.id)?'s':'r'} fa-heart"></i>
+        </button>
+        ${toon.badge ? `<div class="cartoon-badge">${toon.badge}</div>` : ""}
+        <div class="cartoon-img-wrap">
+          <img src="${toon.img}" alt="${toon.name}">
+        </div>
+        <div class="cartoon-info">
+          <h3>${toon.name}</h3>
+          <div class="cartoon-rating">${"★".repeat(toon.rating)}${toon.rating<5?"<span style='color:#aaa;'>"+("★".repeat(5-toon.rating))+"</span>":""}</div>
+          <p>${toon.desc}</p>
+          <a href="${toon.yt}" class="watch-btn" target="_blank"><i class="fa fa-play"></i> Watch Now</a>
+        </div>
+      </div>
+    `;
+  });
+  if (!shown) grid.innerHTML = `<div style="margin:2rem auto;color:#ff4e91;font-size:1.35rem;">No cartoons found for this category.</div>`;
+}
+renderCartoons();
+
+document.getElementById('category-bar').addEventListener('click', function(e) {
+  if (e.target.classList.contains('cat-btn')) {
+    document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+    e.target.classList.add('active');
+    renderCartoons(e.target.getAttribute('data-cat'));
+  }
+});
+document.getElementById('search-input').addEventListener('input', function(e) {
+  searchTerm = e.target.value.trim().toLowerCase();
+  renderCartoons(currentCat);
+});
+
+// Theme switcher
+function toggleTheme() {
+  const body = document.body;
+  if (!body.classList.contains('light')) {
+    body.classList.add('light');
+    document.querySelector('.theme-switch i').className='fa fa-sun';
+    document.getElementById('search-input').setAttribute("placeholder", "Search cartoons... (Light Mode)");
+  } else {
+    body.classList.remove('light');
+    document.querySelector('.theme-switch i').className='fa fa-moon';
+    document.getElementById('search-input').setAttribute("placeholder", "Search cartoons...");
+  }
+}
+  </script>
 </body>
 </html>

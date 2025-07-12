@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Profile - NeoCartoon 3D</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Montserrat:700|Open+Sans:400,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+body {
+  background: #1a1e2d;
+  color: #fff;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Open Sans', Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, color 0.3s;
+}
+body.sun {
+  background: #23253a;
+  color: #fff;
+}
+.profile-card-3d {
+  background: rgba(30,33,58,0.95);
+  border-radius: 32px;
+  box-shadow: 0 12px 48px #23d8e655, 0 7px 28px #1a1e2d99;
+  border: 2.5px solid #23d8e655;
+  max-width: 350px;
+  width: 96vw;
+  padding: 2.5rem 2rem 2.2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+  transform-style: preserve-3d;
+  animation: popin 0.7s cubic-bezier(.22,1,.36,1);
+  margin: 2rem 0;
+}
+@keyframes popin {
+  0% { transform: scale(0.7) rotateY(-45deg); opacity: 0;}
+  80% { transform: scale(1.05) rotateY(6deg);}
+  100% { transform: scale(1) rotateY(0deg); opacity: 1;}
+}
+.profile-avatar {
+  position: relative;
+  width: 116px;
+  height: 116px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#23d8e6 0%,#ff4e91 100%);
+  box-shadow: 0 7px 32px #23d8e6bb, 0 0 0 7px #fff4;
+  overflow: hidden;
+  margin-bottom: 1.1rem;
+  border: 3px solid #f9d923;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-avatar img {
+  width: 102px;
+  height: 102px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 3px 18px #ff4e9199;
+  background: #fff;
+  border: 2.5px solid #fff;
+}
+.profile-name {
+  font-family: 'Fredoka One',cursive;
+  font-size: 2rem;
+  color: #f9d923;
+  margin-bottom: 0.3rem;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 16px #23d8e655;
+}
+.profile-username {
+  color: #23d8e6;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1.3px;
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+  text-shadow: 0 1px 7px #23d8e655;
+}
+.profile-bio {
+  color: #fffde6;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  max-width: 96%;
+}
+.profile-actions {
+  display: flex;
+  gap: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.profile-action-btn {
+  background: linear-gradient(120deg,#23d8e6 0%,#ff4e91 100%);
+  color: #fff;
+  border: none;
+  border-radius: 22px;
+  font-size: 1.09rem;
+  font-weight: 700;
+  padding: 0.7rem 1.7rem;
+  cursor: pointer;
+  box-shadow: 0 3px 18px #23d8e655;
+  transition: background 0.18s, color 0.18s, box-shadow 0.17s, transform 0.17s;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+}
+.profile-action-btn:hover {
+  background: linear-gradient(120deg,#ff4e91 0%,#23d8e6 100%);
+  color: #fffbe6;
+  box-shadow: 0 8px 22px #ff4e9188;
+  transform: scale(1.09);
+}
+.profile-socials {
+  display: flex;
+  gap: 1.3rem;
+  margin-top: 1.2rem;
+}
+.profile-socials a {
+  color: #23d8e6;
+  font-size: 1.5rem;
+  background: #fff1;
+  padding: 0.5rem 0.7rem;
+  border-radius: 16px;
+  transition: color 0.18s, background 0.18s, transform 0.17s;
+  text-decoration: none;
+  box-shadow: 0 2px 8px #23d8e633;
+}
+.profile-socials a:hover {
+  background: #23d8e6;
+  color: #fff;
+  transform: scale(1.12) rotate(-7deg);
+}
+.profile-card-3d::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 32px;
+  box-shadow: 0 8px 36px #23d8e622, 0 0 0 12px #23d8e617;
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@media (max-width: 500px) {
+  .profile-card-3d {
+    padding: 1.3rem 0.5rem 1.1rem 0.5rem;
+    max-width: 99vw;
+  }
+  .profile-avatar {
+    width: 82px;
+    height: 82px;
+  }
+  .profile-avatar img {
+    width: 69px;
+    height: 69px;
+  }
+  .profile-name {
+    font-size: 1.2rem;
+  }
+}
+  </style>
+</head>
+<body class="sun">
+  <div class="profile-card-3d">
+    <div class="profile-avatar">
+      <img src="https://api.dicebear.com/8.x/bottts/svg?seed=Sobia122" alt="Profile Avatar">
+    </div>
+    <div class="profile-name">Sobia</div>
+    <div class="profile-username">@Sobia122</div>
+    <div class="profile-bio">
+      Cartoon lover, 3D enthusiast &amp; sunshine in your timeline!<br>
+      <span style="color:#f9d923;">★</span> Member since 2024
+    </div>
+    <div class="profile-actions">
+      <a href="mailto:sobia@email.com" class="profile-action-btn"><i class="fa fa-envelope"></i> Message</a>
+      <a href="index.html" class="profile-action-btn"><i class="fa fa-home"></i> Home</a>
+    </div>
+    <div class="profile-socials">
+      <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+</body>
+</html>
